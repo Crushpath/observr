@@ -13,8 +13,8 @@ require 'rbconfig'
 #     $ watchr path/to/script
 #
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-module Watchr
-  VERSION = '0.7'
+module Observr
+  VERSION = '1.0'
 
   begin
     require 'fsevent'

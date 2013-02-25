@@ -4,25 +4,25 @@ require 'pathname'
 require 'optparse'
 require 'tempfile'
 
-require File.dirname(__FILE__) + '/../lib/watchr'
+require File.dirname(__FILE__) + '/../lib/observr'
 
-module Watchr
+module Observr
   # Namespaced to avoid defining global methods
   #
   # @private
   module Bin
     extend self
 
-    DEFAULT_SCRIPT_PATH = Pathname.new('specs.watchr')
+    DEFAULT_SCRIPT_PATH = Pathname.new('specs.observr')
 
     attr_accessor :path
 
     def usage
-      "Usage: watchr [opts] path/to/script"
+      "Usage: observr [opts] path/to/script"
     end
 
     def version
-      "watchr version: %s" % Watchr::VERSION
+      "observr version: %s" % Observr::VERSION
     end
 
     # Absolute path to script file
@@ -64,18 +64,18 @@ module Watchr
 end
 
 opts = OptionParser.new do |opts|
-  opts.banner = Watchr::Bin.usage
+  opts.banner = Observr::Bin.usage
 
   opts.on('-d', '--debug', "Print extra debug info while program runs") {
-    Watchr.options.debug = true
+    Observr.options.debug = true
     begin
       require 'ruby-debug'
     rescue LoadError, RuntimeError
     end
   }
   opts.on('-l', '--list', "Display list of files monitored by script and exit") {
-    script     = Watchr::Script.new(Watchr::Bin.path!)
-    controller = Watchr::Controller.new(script, Watchr.handler.new)
+    script     = Observr::Script.new(Observr::Bin.path!)
+    controller = Observr::Controller.new(script, Observr.handler.new)
     script.parse!
     puts controller.monitored_paths
     exit
@@ -88,18 +88,18 @@ opts = OptionParser.new do |opts|
     exit
   end
 
-  opts.on('-e', '--eval INLINE_SCRIPT', %|Evaluate script inline ($ watchr -e "watch('foo') { puts 'bar' }")|) {|code|
+  opts.on('-e', '--eval INLINE_SCRIPT', %|Evaluate script inline ($ observr -e "watch('foo') { puts 'bar' }")|) {|code|
     assert_syntax(code)
 
     Tempfile.open('foo') {|f| f << code; @__path = f.path }
-    Watchr::Bin.path = Pathname(@__path)
+    Observr::Bin.path = Pathname(@__path)
   }
 
   opts.on_tail('-h', '--help', "Print inline help") { puts opts; exit }
-  opts.on_tail('-v', '--version', "Print version" ) { puts Watchr::Bin.version; exit }
+  opts.on_tail('-v', '--version', "Print version" ) { puts Observr::Bin.version; exit }
 
   opts.parse! ARGV
 end
 
-Watchr::Controller.new(Watchr::Script.new(Watchr::Bin.path!), Watchr.handler.new).run
+Observr::Controller.new(Observr::Script.new(Observr::Bin.path!), Observr.handler.new).run
 
