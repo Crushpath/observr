@@ -1,5 +1,6 @@
 require 'pathname'
 require 'rbconfig'
+require 'observr/version'
 
 # Agile development tool that monitors a directory recursively, and triggers a
 # user defined action whenever an observed file is modified. Its most typical
@@ -14,8 +15,6 @@ require 'rbconfig'
 #
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 module Observr
-  VERSION = '1.0.2'
-
   begin
     require 'fsevent'
     HAVE_FSE = true
