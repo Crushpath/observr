@@ -108,7 +108,7 @@ module Observr
     #
     def handler
       @handler ||=
-        case ENV['HANDLER'] || Config::CONFIG['host_os']
+        case ENV['HANDLER'] || RbConfig::CONFIG['host_os']
           when /darwin|mach|osx|fsevents?/i
             if Observr::HAVE_FSE
               Observr::EventHandler::Darwin
