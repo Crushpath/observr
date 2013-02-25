@@ -109,7 +109,7 @@ Links
 [1]:  http://github.com/kevinburke/observr/blob/master/specs.observr
 [2]:  http://github.com/kevinburke/observr/blob/master/docs.observr
 [3]:  http://github.com/kevinburke/observr/blob/master/gem.observr
-[4]:  http://github.com/tarcieri/rev/
+[4]:  http://rev.rubyforge.org/rdoc/
 [5]:  http://wiki.github.com/mynyml/observr
 [6]:  http://github.com/mynyml/redgreen
 [7]:  http://github.com/mynyml/phocus
