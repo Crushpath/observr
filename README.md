@@ -1,9 +1,11 @@
 Summary
 -------
 
-Agile development tool that monitors a directory tree, and triggers a user
-defined action whenever an observed file is modified. Its most typical use is
-continuous testing, and as such it is a more flexible alternative to autotest.
+Watch any files in a directory, and take an action when they change (run tests,
+compile markdown, compile SCSS, etc).
+
+Most of the code in here is written by
+[Martin][https://github.com/mynyml/watchr].
 
 Features
 --------
