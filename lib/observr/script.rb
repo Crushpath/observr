@@ -1,11 +1,11 @@
-module Watchr
+module Observr
 
   # A script object wraps a script file, and is used by a controller.
   #
   # @example
   #
-  #     path   = Pathname.new('specs.watchr')
-  #     script = Watchr::Script.new(path)
+  #     path   = Pathname.new('specs.observr')
+  #     script = Observr::Script.new(path)
   #
   class Script
 
@@ -106,7 +106,7 @@ module Watchr
     #     watch( 'test/test_.*\.rb' )  {|md| system("ruby #{md[0]}") }
     #     watch( 'lib/(.*)\.rb' )      {|md| system("ruby test/test_#{md[1]}.rb") }
     #
-    # With these two rules, watchr will run any test file whenever it is itself
+    # With these two rules, observr will run any test file whenever it is itself
     # changed (first rule), and will also run a corresponding test file
     # whenever a lib file is changed (second rule).
     #
@@ -176,7 +176,7 @@ module Watchr
       sleep(0.3) #enough?
       retry
     ensure
-      Watchr.debug('loaded script file %s' % @path.to_s.inspect)
+      Observr.debug('loaded script file %s' % @path.to_s.inspect)
     end
 
     # Find an action corresponding to a path and event type. The returned
@@ -186,7 +186,7 @@ module Watchr
     # @example
     #
     #     script.watch( 'test/test_.*\.rb' ) {|md| "ruby #{md[0]}" }
-    #     script.action_for('test/test_watchr.rb').call #=> "ruby test/test_watchr.rb"
+    #     script.action_for('test/test_observr.rb').call #=> "ruby test/test_observr.rb"
     #
     # @param [Pathname, String] path
     #   find action that corresponds to this path.

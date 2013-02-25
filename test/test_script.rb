@@ -1,7 +1,7 @@
 require 'test/test_helper'
 
 class TestScript < MiniTest::Unit::TestCase
-  include Watchr
+  include Observr
 
   def setup
     @script = Script.new

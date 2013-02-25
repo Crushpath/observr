@@ -1,11 +1,11 @@
 
-To use local watchr executable for dev work:
+To use local observr executable for dev work:
 
-  $ ruby -rubygems -Ilib ./bin/watchr -d specs.watchr
+  $ ruby -rubygems -Ilib ./bin/observr -d specs.observr
 
 To force a specific handler:
 
-  $ HANDLER=protable watchr -d specs.watchr
-  $ HANDLER=unix watchr -d specs.watchr
+  $ HANDLER=protable observr -d specs.observr
+  $ HANDLER=unix observr -d specs.observr
 
-  (see Watchr.handler)
+  (see Observr.handler)

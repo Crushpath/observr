@@ -1,5 +1,5 @@
 # Run me with:
-#   $ watchr docs.watchr
+#   $ observr docs.observr
 
 require 'yard'
 # --------------------------------------------------

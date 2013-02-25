@@ -1,8 +1,8 @@
 require 'test/test_helper'
 
-if Watchr::HAVE_FSE
+if Observr::HAVE_FSE
 
-class Watchr::EventHandler::Darwin
+class Observr::EventHandler::Darwin
   attr_accessor :paths
 
   def start()   end #noop
@@ -12,7 +12,7 @@ class Watchr::EventHandler::Darwin
 end
 
 class DarwinEventHandlerTest < MiniTest::Unit::TestCase
-  include Watchr
+  include Observr
 
   def tempfile(name)
     file = Tempfile.new(name, @root.to_s)
@@ -107,5 +107,5 @@ class DarwinEventHandlerTest < MiniTest::Unit::TestCase
   end
 end
 
-end  # if Watchr::HAVE_FSE
+end  # if Observr::HAVE_FSE
 

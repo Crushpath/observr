@@ -1,6 +1,6 @@
 require 'observer'
 
-module Watchr
+module Observr
   module EventHandler
 
     # @private

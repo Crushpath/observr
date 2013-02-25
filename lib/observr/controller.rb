@@ -1,11 +1,11 @@
-module Watchr
+module Observr
 
   # The controller contains the app's core logic.
   #
   # @example
   #
-  #     script = Watchr::Script.new(file)
-  #     contrl = Watchr::Controller.new(script, Watchr.handler.new)
+  #     script = Observr::Script.new(file)
+  #     contrl = Observr::Controller.new(script, Observr.handler.new)
   #     contrl.run
   #
   #     # Calling `run` will enter the listening loop, and from then on every
@@ -25,14 +25,14 @@ module Watchr
     # @param [EventHandler::Base] handler
     #   The filesystem event handler
     #
-    # @see Watchr::Script
-    # @see Watchr.handler
+    # @see Observr::Script
+    # @see Observr.handler
     #
     def initialize(script, handler)
       @script, @handler = script, handler
       @handler.add_observer(self)
 
-      Watchr.debug "using %s handler" % handler.class.name
+      Observr.debug "using %s handler" % handler.class.name
     end
 
     # Enter listening loop. Will block control flow until application is
@@ -58,7 +58,7 @@ module Watchr
     def update(path, event_type = nil)
       path = Pathname(path).expand_path
 
-      Watchr.debug("received #{event_type.inspect} event for #{path.relative_path_from(Pathname(Dir.pwd))}")
+      Observr.debug("received #{event_type.inspect} event for #{path.relative_path_from(Pathname(Dir.pwd))}")
       if path == @script.path && event_type != :accessed
         @script.parse!
         @handler.refresh(monitored_paths)

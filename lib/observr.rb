@@ -10,7 +10,7 @@ require 'rbconfig'
 # @example
 #
 #     # on command line, from project's root dir
-#     $ watchr path/to/script
+#     $ observr path/to/script
 #
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 module Observr
@@ -30,14 +30,14 @@ module Observr
     HAVE_REV = false
   end
 
-  autoload :Script,     'watchr/script'
-  autoload :Controller, 'watchr/controller'
+  autoload :Script,     'observr/script'
+  autoload :Controller, 'observr/controller'
 
   module EventHandler
-    autoload :Base,     'watchr/event_handlers/base'
-    autoload :Portable, 'watchr/event_handlers/portable'
-    autoload :Unix,     'watchr/event_handlers/unix'      if ::Watchr::HAVE_REV
-    autoload :Darwin,   'watchr/event_handlers/darwin'    if ::Watchr::HAVE_FSE
+    autoload :Base,     'observr/event_handlers/base'
+    autoload :Portable, 'observr/event_handlers/portable'
+    autoload :Unix,     'observr/event_handlers/unix'      if ::Observr::HAVE_REV
+    autoload :Darwin,   'observr/event_handlers/darwin'    if ::Observr::HAVE_FSE
   end
 
   class << self
@@ -46,7 +46,7 @@ module Observr
 
     # @deprecated
     def version #:nodoc:
-      Watchr::VERSION
+      Observr::VERSION
     end
 
     # Options proxy.
@@ -57,8 +57,8 @@ module Observr
     #
     # @example
     #
-    #     Watchr.options.debug #=> false
-    #     Watchr.options.debug = true
+    #     Observr.options.debug #=> false
+    #     Observr.options.debug = true
     #
     # @return [Struct]
     #   options proxy.
@@ -73,10 +73,10 @@ module Observr
     #
     # @example
     #
-    #     Watchr.options.debug = true
-    #     Watchr.debug('im in ur codes, notifayinin u')
+    #     Observr.options.debug = true
+    #     Observr.debug('im in ur codes, notifayinin u')
     #
-    #     #outputs: "[watchr debug] im in ur codes, notifayinin u"
+    #     #outputs: "[observr debug] im in ur codes, notifayinin u"
     #
     # @param [String] message
     #   debug message to print
@@ -84,7 +84,7 @@ module Observr
     # @return [nil]
     #
     def debug(msg)
-      puts "[watchr debug] #{msg}" if options.debug
+      puts "[observr debug] #{msg}" if options.debug
     end
 
     # Detect current OS and return appropriate handler.
@@ -92,16 +92,16 @@ module Observr
     # @example
     #
     #     Config::CONFIG['host_os'] #=> 'linux-gnu'
-    #     Watchr.handler #=> Watchr::EventHandler::Unix
+    #     Observr.handler #=> Observr::EventHandler::Unix
     #
     #     Config::CONFIG['host_os'] #=> 'cygwin'
-    #     Watchr.handler #=> Watchr::EventHandler::Portable
+    #     Observr.handler #=> Observr::EventHandler::Portable
     #
     #     ENV['HANDLER'] #=> 'unix'
-    #     Watchr.handler #=> Watchr::EventHandler::Unix
+    #     Observr.handler #=> Observr::EventHandler::Unix
     #
     #     ENV['HANDLER'] #=> 'portable'
-    #     Watchr.handler #=> Watchr::EventHandler::Portable
+    #     Observr.handler #=> Observr::EventHandler::Portable
     #
     # @return [Class]
     #   handler class for current architecture
@@ -110,23 +110,23 @@ module Observr
       @handler ||=
         case ENV['HANDLER'] || Config::CONFIG['host_os']
           when /darwin|mach|osx|fsevents?/i
-            if Watchr::HAVE_FSE
-              Watchr::EventHandler::Darwin
+            if Observr::HAVE_FSE
+              Observr::EventHandler::Darwin
             else
-              Watchr.debug "fsevent not found. `gem install ruby-fsevent` to get evented handler"
-              Watchr::EventHandler::Portable
+              Observr.debug "fsevent not found. `gem install ruby-fsevent` to get evented handler"
+              Observr::EventHandler::Portable
             end
           when /sunos|solaris|bsd|linux|unix/i
-            if Watchr::HAVE_REV
-              Watchr::EventHandler::Unix
+            if Observr::HAVE_REV
+              Observr::EventHandler::Unix
             else
-              Watchr.debug "rev not found. `gem install rev` to get evented handler"
-              Watchr::EventHandler::Portable
+              Observr.debug "rev not found. `gem install rev` to get evented handler"
+              Observr::EventHandler::Portable
             end
           when /mswin|windows|cygwin/i
-            Watchr::EventHandler::Portable
+            Observr::EventHandler::Portable
           else
-            Watchr::EventHandler::Portable
+            Observr::EventHandler::Portable
         end
     end
   end

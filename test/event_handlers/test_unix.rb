@@ -1,13 +1,13 @@
 require 'test/test_helper'
 
-if Watchr::HAVE_REV
+if Observr::HAVE_REV
 
-class Watchr::EventHandler::Unix::SingleFileWatcher
+class Observr::EventHandler::Unix::SingleFileWatcher
   public :type
 end
 
 class UnixEventHandlerTest < MiniTest::Unit::TestCase
-  include Watchr
+  include Observr
 
   SingleFileWatcher = EventHandler::Unix::SingleFileWatcher
 
@@ -159,4 +159,4 @@ class UnixEventHandlerTest < MiniTest::Unit::TestCase
   end
 end
 
-end  # if Watchr::HAVE_REV
+end  # if Observr::HAVE_REV

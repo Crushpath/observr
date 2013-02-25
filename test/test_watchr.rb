@@ -1,76 +1,76 @@
 require 'test/test_helper'
 
-class TestWatchr < MiniTest::Unit::TestCase
+class TestObservr < MiniTest::Unit::TestCase
 
   def setup
-    Watchr.options = nil
+    Observr.options = nil
   end
 
   ## options
 
   test "debug option" do
-    assert_equal false, Watchr.options.debug
-    Watchr.options.debug = true
-    assert_equal true,  Watchr.options.debug
+    assert_equal false, Observr.options.debug
+    Observr.options.debug = true
+    assert_equal true,  Observr.options.debug
   end
 
   ## functionality
 
   test "debug" do
-    assert_empty capture_io { Watchr.debug('abc') }.first
-    Watchr.options.debug = true
-    assert_equal "[watchr debug] abc\n", capture_io { Watchr.debug('abc') }.first
+    assert_empty capture_io { Observr.debug('abc') }.first
+    Observr.options.debug = true
+    assert_equal "[observr debug] abc\n", capture_io { Observr.debug('abc') }.first
   end
 
   test "picking handler" do
 
-    if Watchr::HAVE_REV
+    if Observr::HAVE_REV
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'linux'
-    assert_equal Watchr::EventHandler::Unix, Watchr.handler
+    assert_equal Observr::EventHandler::Unix, Observr.handler
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'bsd'
-    assert_equal Watchr::EventHandler::Unix, Watchr.handler
+    assert_equal Observr::EventHandler::Unix, Observr.handler
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'unix'
-    assert_equal Watchr::EventHandler::Unix, Watchr.handler
+    assert_equal Observr::EventHandler::Unix, Observr.handler
 
     end
 
-    if Watchr::HAVE_FSE
+    if Observr::HAVE_FSE
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'darwin'
-    assert_equal Watchr::EventHandler::Darwin, Watchr.handler
+    assert_equal Observr::EventHandler::Darwin, Observr.handler
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'osx'
-    assert_equal Watchr::EventHandler::Darwin, Watchr.handler
+    assert_equal Observr::EventHandler::Darwin, Observr.handler
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'fsevent'
-    assert_equal Watchr::EventHandler::Darwin, Watchr.handler
+    assert_equal Observr::EventHandler::Darwin, Observr.handler
 
     end
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'mswin'
-    assert_equal Watchr::EventHandler::Portable, Watchr.handler
+    assert_equal Observr::EventHandler::Portable, Observr.handler
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'cygwin'
-    assert_equal Watchr::EventHandler::Portable, Watchr.handler
+    assert_equal Observr::EventHandler::Portable, Observr.handler
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'portable'
-    assert_equal Watchr::EventHandler::Portable, Watchr.handler
+    assert_equal Observr::EventHandler::Portable, Observr.handler
 
-    Watchr.handler = nil
+    Observr.handler = nil
     ENV['HANDLER'] = 'other'
-    assert_equal Watchr::EventHandler::Portable, Watchr.handler
+    assert_equal Observr::EventHandler::Portable, Observr.handler
   end
 end
 

@@ -92,15 +92,15 @@ See Also
 
 * [redgreen][6]:   Standalone redgreen eye candy for test results, ala autotest.
 * [phocus][7]:     Run focused tests when running the whole file/suite is unnecessary.
-* [autowatchr][8]: Provides some autotest-like behavior for watchr
+* [autoobservr][8]: Provides some autotest-like behavior for observr
 * [nestor][9]:     Continuous testing server for Rails
 
 Links
 -----
 
 * code:  <http://github.com/kevinburke/observr>
-* docs:  <http://yardoc.org/docs/mynyml-watchr/file:README.rdoc>
-* wiki:  <http://wiki.github.com/mynyml/watchr>
+* docs:  <http://yardoc.org/docs/mynyml-observr/file:README.rdoc>
+* wiki:  <http://wiki.github.com/mynyml/observr>
 * bugs:  <http://github.com/kevinburke/observr/issues>
 
 
@@ -110,10 +110,10 @@ Links
 [2]:  http://github.com/kevinburke/observr/blob/master/docs.observr
 [3]:  http://github.com/kevinburke/observr/blob/master/gem.observr
 [4]:  http://github.com/tarcieri/rev/
-[5]:  http://wiki.github.com/mynyml/watchr
+[5]:  http://wiki.github.com/mynyml/observr
 [6]:  http://github.com/mynyml/redgreen
 [7]:  http://github.com/mynyml/phocus
-[8]:  http://github.com/viking/autowatchr
+[8]:  http://github.com/viking/autoobservr
 [9]:  http://github.com/francois/nestor
 [10]: http://github.com/sandro/ruby-fsevent
 

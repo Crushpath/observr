@@ -1,13 +1,13 @@
 # Run me with:
-#   $ watchr specs.watchr
+#   $ observr specs.observr
 
 # --------------------------------------------------
 # Rules
 # --------------------------------------------------
 watch( '^test.*/test_.*\.rb'                 )  { |m| ruby  m[0] }
 watch( '^lib/(.*)\.rb'                       )  { |m| ruby "test/test_#{m[1]}.rb" }
-watch( '^lib/watchr/(.*)\.rb'                )  { |m| ruby "test/test_#{m[1]}.rb" }
-watch( '^lib/watchr/event_handlers/(.*)\.rb' )  { |m| ruby "test/event_handlers/test_#{m[1]}.rb" }
+watch( '^lib/observr/(.*)\.rb'                )  { |m| ruby "test/test_#{m[1]}.rb" }
+watch( '^lib/observr/event_handlers/(.*)\.rb' )  { |m| ruby "test/event_handlers/test_#{m[1]}.rb" }
 watch( '^test/test_helper\.rb'               )  { ruby tests }
 
 # --------------------------------------------------

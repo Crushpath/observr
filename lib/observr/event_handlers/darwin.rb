@@ -1,4 +1,4 @@
-module Watchr
+module Observr
   module EventHandler
 
     class ::FSEvents
@@ -14,7 +14,7 @@ module Watchr
       # @return [nil]
       #
       def self.debug(msg)
-        puts "[fsevents] #{msg}" if Watchr.options.debug
+        puts "[fsevents] #{msg}" if Observr.options.debug
       end
     end
 

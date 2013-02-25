@@ -1,4 +1,4 @@
-module Watchr
+module Observr
   module EventHandler
     class Portable
       include Base

@@ -8,7 +8,7 @@ class MockHandler
 end
 
 class TestController < MiniTest::Unit::TestCase
-  include Watchr
+  include Observr
 
   def to_p(str)
     Pathname(str).expand_path
