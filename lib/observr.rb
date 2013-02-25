@@ -14,7 +14,7 @@ require 'rbconfig'
 #
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 module Observr
-  VERSION = '1.0'
+  VERSION = '1.0.2'
 
   begin
     require 'fsevent'
