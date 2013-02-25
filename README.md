@@ -5,7 +5,7 @@ Watch any files in a directory, and take an action when they change (run tests,
 compile markdown, compile SCSS, etc).
 
 Most of the code in here is written by
-[Martin][https://github.com/mynyml/watchr].
+[Martin Aumont][https://github.com/mynyml/watchr].
 
 Features
 --------

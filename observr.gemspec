@@ -2,12 +2,11 @@ require File.expand_path('../lib/observr/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name                = "observr"
-  s.summary             = "Modern continuous testing (flexible alternative to autotest)"
-  s.description         = "Modern continuous testing (flexible alternative to autotest)."
-  s.author              = "mynyml"
-  s.email               = "mynyml@gmail.com"
-  s.homepage            = "http://mynyml.com/ruby/flexible-continuous-testing"
-  s.rubyforge_project   = "observr"
+  s.summary             = "Watch files in a directory and do an action when they change"
+  s.description         = "Watch files in a directory and take some action when they change (run tests, compile markdown, compile SCSS, etc)"
+  s.authors             = ["mynyml", "kevinburke"]
+  s.email               = "kev+watchr@inburke.com"
+  s.homepage            = "https://github.com/kevinburke/observr"
   s.require_path        = "lib"
   s.bindir              = "bin"
   s.license             = "MIT"
