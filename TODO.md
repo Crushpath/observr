@@ -1,9 +1,9 @@
 Features
 --------
 
-* watchr -e ( `$ watchr -e "watch('foo.gemspec') { system('gem build foo.gemspec') }"` )
-* watchr --auto
-* watchr --fetch
+* observr -e ( `$ observr -e "watch('foo.gemspec') { system('gem build foo.gemspec') }"` )
+* observr --auto
+* observr --fetch
 
 * enable ability to watch dirs
   * requires new handler(s)

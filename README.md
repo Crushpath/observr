@@ -8,7 +8,7 @@ continuous testing, and as such it is a more flexible alternative to autotest.
 Features
 --------
 
-watchr is:
+observr is:
 
 * Simple to use
 * Highly flexible
@@ -28,7 +28,7 @@ Usage
 
 On the command line,
 
-    $ watchr path/to/script.file
+    $ observr path/to/script.file
 
 will monitor files in the current directory tree, and react to events on those
 files in accordance with the script.
@@ -55,30 +55,30 @@ A continuous testing script for a basic project could be
 which, in addition to running any saved test file as above, will also run a
 lib file's associated test. This mimics the equivalent autotest behaviour.
 
-It's easy to see why watchr is so flexible, since the whole command is custom.
+It's easy to see why observr is so flexible, since the whole command is custom.
 The above actions could just as easily call "jruby", "ruby --rubygems", "ruby
 -Ilib", "specrb", "rbx", ... or any combination of these. For the sake of
 comparison, autotest runs with:
 
-    $ /usr/bin/ruby1.8 -I.:lib:test -rubygems -e "%w[test/unit test/test_helper.rb test/test_watchr.rb].each { |f| require f }"
+    $ /usr/bin/ruby1.8 -I.:lib:test -rubygems -e "%w[test/unit test/test_helper.rb test/test_observr.rb].each { |f| require f }"
 
 locking the environment into ruby1.8, rubygems and test/unit for all tests.
 
 And remember the scripts are pure ruby, so feel free to add methods,
 `Signal#trap` calls, etc. Updates to script files are picked up on the fly (no
-need to restart watchr) so experimenting is painless.
+need to restart observr) so experimenting is painless.
 
 The [wiki][5] has more details and examples.  You might also want to take a
-look at watchr's own scripts, [specs.watchr][1], [docs.watchr][2] and
-[gem.watchr][3], to get you started.
+look at observr's own scripts, [specs.observr][1], [docs.observr][2] and
+[gem.observr][3], to get you started.
 
 Install
 -------
 
-    gem install watchr
+    gem install observr
 
-If you're on Linux/BSD and have the [rev][4] gem installed, Watchr will detect
-it and use it automatically. This will make Watchr evented.
+If you're on Linux/BSD and have the [rev][4] gem installed, Observr will detect
+it and use it automatically. This will make Observr evented.
 
     gem install rev
 
@@ -98,17 +98,17 @@ See Also
 Links
 -----
 
-* code:  <http://github.com/mynyml/watchr>
+* code:  <http://github.com/kevinburke/observr>
 * docs:  <http://yardoc.org/docs/mynyml-watchr/file:README.rdoc>
 * wiki:  <http://wiki.github.com/mynyml/watchr>
-* bugs:  <http://github.com/mynyml/watchr/issues>
+* bugs:  <http://github.com/kevinburke/observr/issues>
 
 
 
 
-[1]:  http://github.com/mynyml/watchr/blob/master/specs.watchr
-[2]:  http://github.com/mynyml/watchr/blob/master/docs.watchr
-[3]:  http://github.com/mynyml/watchr/blob/master/gem.watchr
+[1]:  http://github.com/kevinburke/observr/blob/master/specs.observr
+[2]:  http://github.com/kevinburke/observr/blob/master/docs.observr
+[3]:  http://github.com/kevinburke/observr/blob/master/gem.observr
 [4]:  http://github.com/tarcieri/rev/
 [5]:  http://wiki.github.com/mynyml/watchr
 [6]:  http://github.com/mynyml/redgreen

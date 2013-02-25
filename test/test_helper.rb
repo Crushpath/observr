@@ -13,7 +13,7 @@ begin
 rescue LoadError, RuntimeError
 end
 
-require 'watchr'
+require 'observr'
 
 class MiniTest::Unit::TestCase
   class << self
@@ -27,11 +27,11 @@ class MiniTest::Unit::TestCase
   end
 end
 
-unless Watchr::HAVE_REV
+unless Observr::HAVE_REV
   puts "Skipping Unix handler tests. Install Rev (gem install rev) to properly test full suite"
 end
 
-unless Watchr::HAVE_FSE
+unless Observr::HAVE_FSE
   puts "Skipping Darwin handler tests. Install FSEvent (gem install ruby-fsevent) to properly test full suite (osx only)"
 end
 
