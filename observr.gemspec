@@ -1,4 +1,4 @@
-require 'lib/observr'
+require './lib/observr'
 
 Gem::Specification.new do |s|
   s.name                = "observr"
@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project   = "observr"
   s.require_path        = "lib"
   s.bindir              = "bin"
+  s.license             = "MIT"
   s.executables         = "observr"
   s.version             =  Observr::VERSION
   s.files               =  `git ls-files`.strip.split("\n")
